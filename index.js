@@ -15,7 +15,7 @@ mongoose.connect(CONNECTION_STRING);
 const app = express();
 app.use(cors({
     credentials: true,
-    origin: "https://web-dev-a1-dhx7-git-a6-ruthviks-projects-a587d005.vercel.app" || "http://localhost:3000",
+    origin: process.env.CLIENT_URL || "http://localhost:3000",
 })
 );
 const sessionOptions = {
