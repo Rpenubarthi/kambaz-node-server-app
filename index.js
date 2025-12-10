@@ -7,6 +7,10 @@ import UserRoutes from "./Kambaz/Users/routes.js";
 import "dotenv/config";
 import session from "express-session";
 import CourseRoutes from "./Kambaz/Courses/routes.js";
+import PostRoutes from "./Kambaz/Pazza/Posts/routes.js";
+import AnswerRoutes from "./Kambaz/Pazza/Answers/routes.js";
+import DiscussionRoutes from "./Kambaz/Pazza/Discussions/routes.js";
+import FolderRoutes from "./Kambaz/Pazza/Folders/routes.js";
 
 
 
@@ -35,5 +39,11 @@ app.use(session(sessionOptions));
 app.use(express.json());
 UserRoutes(app, db);
 CourseRoutes(app, db);
+PostRoutes(app);
+AnswerRoutes(app);
+DiscussionRoutes(app);
+FolderRoutes(app);
 Lab5(app);
-app.listen(process.env.PORT || 4000);
+app.listen(process.env.PORT || 4000, () => {
+  console.log(`Server is listening on port ${process.env.PORT || 4000}`);
+});
